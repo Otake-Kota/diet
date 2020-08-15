@@ -41,4 +41,4 @@ test:
  
 production:
   <<: *default
-  database: diet
+  url: <%= ENV['DATABASE_URL'] %>
