@@ -1,0 +1,269 @@
+.sign_up {
+    background: image-url('/images/sign_up.jpg');
+}
+.sign_in {
+    background: image-url('/images/sign_in.jpg');
+}
+.sign_up, .sign_in {
+    background-size: cover;
+    height: 800px;
+    .contents {
+        .sign_up_from, .sign_in_from {
+            width: 300px;
+            background:rgba(255,255,255,0.5);
+            padding: 20px;
+            position: relative;
+            top: 100px;
+            left: 150px;
+            border-radius: 10px;
+            h1 {
+                font-size: 50px;
+                color: white;
+                text-align: center;
+                font-family: serif;
+            }
+            .title {
+                margin-bottom: 30px;
+            }
+            .sub_title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 15px;
+                color: white;
+                font-family: serif;
+            }
+            div {
+                margin-bottom: 10px;
+                input[type="text"], input[type="email"], input[type="number"], input[type="password"] {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: none;
+                }
+                p {
+                    font-size: 20px;
+                    margin-bottom: 2px;
+                }
+            }
+            button {
+                border: none;
+                width: 100%;
+                background-color: white;
+                border-radius: 10px;
+            }
+            .link_sign_up, .link_sign_in {
+                margin-bottom: 0px;
+                text-align: center;
+                margin-top: 10px;
+                .new_sign_up, .new_sign_in {
+                text-decoration: none;
+                color: black;
+                }
+            }
+        }
+    }
+}
+
+
+.profiles {
+    .contents {
+        display: flex;
+        .my_profile {
+            margin-left: 80px;
+            margin-top: 50px;
+            flex: 1;
+            .image_and_name {
+                .image {
+                    border-radius: 50%;
+                }
+                .name {
+                    font-family: serif;
+                    font-size: 50px;
+                    margin-left: 70px;
+                }
+            }
+            .my_post {
+                font-family: serif;
+                font-size: 30px;
+                margin-top: 20px;
+            }
+            
+        }
+        .link_to {
+            padding: 10px;
+            margin: 20px;
+            border-radius: 10px;
+            border: solid 1px gray;
+            height: 200px;
+            width: 150px;
+            li {
+                margin-bottom: 10px;
+                .link {
+                    text-decoration: none;
+                    font-family: serif;
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+
+
+.profile_edit {
+    .contents {
+        background: image-url('/images/profile_edit.jpg');
+        background-size: cover;
+        height: 710px;
+        background-position: 0px 710px;
+        .profile_edit_form {
+            width: 600px;
+            background:rgba(255,255,255,0.5);
+            padding: 20px;
+            position: relative;
+            top: 70px;
+            left: 100px;
+            border-radius: 5px;
+            .field {
+                margin-bottom: 30px;
+                p {
+                    margin-bottom: 2px;
+                    label {
+                    font-family: serif;
+                    }
+                }
+                input[type="text"], input[type="number"], input[type="password"] {
+                    width: 100%;
+                    font-family: serif;
+                    border-radius: 10px;
+                    border: none;
+                }
+                input[type="file"] {
+                    width: 100%;
+                    font-family: serif;
+                    border: none;
+                }
+            }
+            .btn {
+                width: 100%;
+                border: none;
+                border-radius: 10px;
+                font-family: serif;
+            }
+        }
+    }
+}
+
+
+.post_new {
+    .contents {
+        position: relative;
+        .images {
+            display: flex;
+        }
+        .post_new_form {
+            background:rgba(255,255,255,0.7);
+            padding: 20px;
+            position: absolute;
+            top: 160px;
+            left: 200px;
+            border-radius: 5px;
+            h1 {
+                    margin-bottom: 25px;
+                    font-size: 50px;
+                    text-align: center;
+                    font-family: serif;
+                }
+            div {
+                margin-bottom: 25px;
+                p {
+                    font-size: 20px;
+                }
+                input[type="text"] {
+                    width: 1000px;
+                    border-radius: 10px;
+                    border: none;
+                }
+            }
+            .contents {
+                width: 1000px;
+                border: none;
+                border-radius: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+
+.post_cooking {
+    display: flex;
+    .contents {
+        width: 1400px;
+        .my_recipies {
+            font-size: 30px;
+            color: gray;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .recipies {
+            display: flex;
+            margin: 20px;
+            li {
+                padding: 15px;
+                border: solid 2px gray;
+                border-radius: 10px;
+                .id {
+                    font-size: 15px;
+                }
+                .name {
+                    font-size: 20px;
+                    text-align: center;
+                }
+                .delete {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+    .link_to {
+        padding: 10px;
+        margin: 20px;
+        border-radius: 10px;
+        border: solid 1px gray;
+        height: 200px;
+        width: 150px;
+        li {
+            margin-bottom: 10px;
+            .link {
+                text-decoration: none;
+                font-family: serif;
+                color: gray;
+            }
+        }
+    }
+}
+
+
+
+.cooking_journey {
+    .contents {
+        .cooking_details {
+            position: relative;
+            top: 50px;
+            left: 200px;
+            h1 {
+                margin-bottom: 50px;
+                font-size: 40px;
+                color: gray;
+            }
+            div {
+                margin-bottom: 40px;
+                font-size: 20px;
+                p {
+                    font-size: 40px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<div class="details">
+    <div class="contents">
+        <p class="comment">お疲れ様です!</p>
+        <p>
+            今日は<%= @ex_his.exercise_content.name %>を
+            <span>
+            <% if @hour > 10 %>
+                <%= @hour %>
+            <% else %>
+                0<%= @hour %>
+            <% end %>
+            :
+            <% if @min > 10 %>
+                <%= @min %>
+            <% else %>
+                0<%= @min %>
+            <% end %>
+            :
+            <%= @time.to_i %>(<%= @sec.to_i %>秒)
+            </span>
+            運動しました
+        </p>
+        <p class="cal"><span><%= @ex_his.calorie %></span>kcal消費しました</p>
+        <p class="links">
+            <%= link_to index_process_path, :class => "link continue" do %>
+            運動を続ける
+            <% end %>
+            <%= link_to "運動を終わる", top_path, :class => "link end" %>
+        </p>
+    </div>
+</div>

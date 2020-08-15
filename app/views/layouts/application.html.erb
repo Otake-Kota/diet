@@ -6,9 +6,120 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
 
-  <body>
+  <body class="drawer">
+    <header class="global_header">
+      <%= link_to top_path do %>
+        <h1 class="logo">Diet</h1>
+      <% end %>
+      <!-- 検索フォーム -->
+      <form method="get" action="/" class="search">
+        <input type="text" name="word" placeholder="検索キーワード入力">
+      </form>
+      <% if current_user.present? %>
+      <div class="meter">
+        <p>Lv.<%= current_user.level %></p>
+        <meter min="0" max="<%= LevelSetting.find(current_user.level).calorie %>" low="60" high="80" value="<%= amount_calorie %>"></meter>
+        <p>残り<%= next_level_calorie %>kcal</p>
+      </div>
+      <!-- メニュー -->
+      <ul class="menu">
+        <li>
+          <!-- サインアウト -->
+          <%= link_to sign_out_path do %>
+            <i class="fa fa-sign-out"></i>
+          <% end %>
+        </li>
+        <li>
+          <!-- プロフィールページ -->
+          <a href="#">
+            <i class="fa fa-user-o"></i>
+          </a>
+        </li>
+        <li>
+          <!-- 投稿 -->
+          <a href="#">
+            <i class="fa fa-upload"></i>
+          </a>
+        </li>
+      </ul>
+      <% end %>
+    </header>
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>"><%= message %></div>
+      <% end %>
     <%= yield %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    window.setTimeout(function() {
+      $(".alert").slideUp();
+    }, 3000);
+    $('.form').hide().fadeIn(1500);
+    
+    
+    
+    $(function () {
+  var sec = 0;
+  var min = 0;
+  var hour = 0;
+
+  var timer;
+
+  // スタート
+  $('#start').click(function() {
+    // 00:00:00から開始
+    $('#clock').html('00:00:00');
+    timer = setInterval(countup, 1000);
+
+    $(this).prop('disabled', true);
+    $('#reset').prop('disabled', false);
+    $('#start_time').val(Date.now());
+  });
+
+  // リセット
+  $('#reset').click(function() {
+    // 初期状態
+    sec = 0;
+    min = 0;
+    hour = 0;
+    $('#clock').html('00:00:00');
+    clearInterval(timer);
+
+    $('#reset').prop('disabled', true);
+    $('#start').prop('disabled', false);
+    $('#end_time').val(Date.now());
+    $('#timer_form').submit();
+  });
+
+ /**
+  * カウントアップ
+  */
+  function countup()
+  {
+    sec += 1;
+
+    if (sec > 59) {
+      sec = 0;
+      min += 1;
+    }
+
+    if (min > 59) {
+      min = 0;
+      hour += 1;
+    }
+
+    // 0埋め
+    sec_number = ('0' + sec).slice(-2);
+    min_number = ('0' + min).slice(-2);
+    hour_number = ('0' + hour).slice(-2);
+
+    $('#clock').html(hour_number + ':' +  min_number + ':' + sec_number);
+  }
+});
+
+  </script>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<div class="cooking_journey">
+    <div class="contents">
+        <div class="cooking_details">
+            <h1>料理の詳細</h1>
+            <div>
+                <p>材料と分量</p>
+                <%= @recipe.ingredients %>
+            </div>
+            <div>
+                <p>作り方</p>
+                <%= @recipe.journey %>
+            </div>
+            <div>
+                <p>コツ・ポイント</p>
+                <%= @recipe.trick %>
+            </div>
+        </div>
+    </div>
+</div>

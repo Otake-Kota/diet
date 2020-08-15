@@ -1,0 +1,36 @@
+<div class="sign_up">
+    <div class="contents">
+        <div class="sign_up_from form">
+            <h1>Diet</h1>
+            <p class="sub_title">無理なく健康に</p>
+            <%= form_for @user, url: sign_up_process_path do |f| %>
+                <div>
+                    <p>ニックネーム</p>
+                    <%= f.text_field :name, placeholder: "名前"%>
+                </div>
+                <div>
+                    <p>メールアドレス</p>
+                    <%= f.email_field :email, placeholder: "diet@diet.jp"%>
+                </div>
+                <div>
+                    <p>身長</p>
+                    <%= f.number_field :height, placeholder: "身長(cm)"%>
+                </div>
+                <div>
+                    <p>パスワード</p>
+                    <%= f.password_field :password, placeholder: "８文字以上の英数字"%>
+                </div>
+                <div>
+                    <p>パスワード(確認)</p>
+                    <%= f.password_field :password_confirmation, placeholder: "確認用"%>
+                </div>
+                <button>登録する</button>
+            <% end %>
+            <div class="link_sign_in">
+                <%= link_to sign_in_path, :class => "new_sign_in" do %>
+                >>sign in
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

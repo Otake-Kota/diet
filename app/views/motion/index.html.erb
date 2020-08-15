@@ -1,0 +1,32 @@
+<div class="motion_index">
+    <div class="contents">
+        <div id="clock" name="clock" class="clock">00:00:00</div>
+        <%= form_tag motion_index_process_path, :id => "timer_form" do %>
+        <div class="category_search">
+            <select name="exercise_content" class="category_content">
+                <% @exercise_contents.each do |exercise_content| %>
+                <option value="<%= exercise_content.id %>"><%= exercise_content.name %></option>
+                <% end %>
+            </select>
+        </div>
+        <div class="button">
+            <input type="button" id="start" name="start" value="運動開始" class="time_button">
+            <input type="button" id="reset" name="reset" value="運動終了" disabled class="time_button">
+        </div>
+        <input type="hidden" id="start_time" name="start_time" value="">
+        <input type="hidden" id="end_time" name="end_time" value="">
+        <% end %>
+    </div>
+    <div class="link_to">
+        <ul>
+            <li><%= link_to 'プロフィール', top_path, :class=>'link' %></li>
+            <li><%= link_to 'プロフィール編集', profile_edit_path, :class=>'link' %></li>
+            <li><%= link_to '新規投稿', post_new_path, :class=>'link' %></li>
+            <li><%= link_to 'マイ投稿一覧', post_cooking_path, :class=>'link' %></li>
+            <li><%= link_to '運動する', index_process_path, :class=>'link' %></li>
+            <li><%= link_to '一覧投稿', recipe_index_path, :class=>'link' %></li>
+            <li><%= link_to '体重グラフ, 登録', management_path, :class=>'link' %></li>
+            <li><%= link_to 'カロリーグラフ', calorie_management_path, :class=>'link' %></li>
+        </ul>
+    </div>
+</div>

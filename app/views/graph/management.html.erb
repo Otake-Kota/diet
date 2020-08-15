@@ -1,0 +1,44 @@
+<div class="weight_management">
+    <div class="form_and_link">
+        <div class="weight_form form">
+            <%= form_for @weight, url: management_process_path do |f| %>
+            <div class="weight_register">
+                <p>体重登録</p>
+                <%= f.number_field :weight, placeholder: "0以上の数字を登録してください" %>
+            </div>
+            <div class="time_register">
+                <p>日時</p>
+                <span>(空欄にした場合は現在の日時で登録されます)</span>
+                <%= f.datetime_field :created_at, :class => "created_at" %>
+            </div>
+            <button>登録</button>
+            <% end %>
+        </div>
+        <div class="bmi_and_body_fat_percentage form">
+            <p class="formula">BMI = 体重kg ÷ (身長m) × (身長m)</p>
+            <div class="bmi">
+                <span>BMI: </span>
+                <%= @bmi.round(2) %>
+            </div>
+            <div class="body_fat_percentage">
+                <span>身長<%= current_user.height %>cmの標準体重: </span>
+                <%= @bace_weight.round(2) %>
+            </div>
+        </div>
+        <div class="link_to">
+            <ul>
+                <li><%= link_to 'プロフィール', top_path, :class=>'link' %></li>
+                <li><%= link_to 'プロフィール編集', profile_edit_path, :class=>'link' %></li>
+                <li><%= link_to '新規投稿', post_new_path, :class=>'link' %></li>
+                <li><%= link_to 'マイ投稿一覧', post_cooking_path, :class=>'link' %></li>
+                <li><%= link_to '運動する', index_process_path, :class=>'link' %></li>
+                <li><%= link_to '一覧投稿', recipe_index_path, :class=>'link' %></li>
+                <li><%= link_to '体重グラフ, 登録', management_path, :class=>'link' %></li>
+                <li><%= link_to 'カロリーグラフ', calorie_management_path, :class=>'link' %></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <%= line_chart @weights.pluck(:created_at, :weight), height: "700px", min: @min, max: @max, xtitle: "日付け", ytitle: "体重" %>
+    </div>
+</div>

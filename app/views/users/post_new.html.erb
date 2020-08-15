@@ -1,0 +1,44 @@
+<div class="post_new">
+    <div class="contents">
+        <div class="images">
+            <div>
+                <%= image_tag '/images/post_new1.jpg', :size =>'725x450' %>
+                <%= image_tag '/images/post_new2.jpg', :size =>'725x450' %>
+            </div>
+            <div>
+                <%= image_tag '/images/post_new3.jpg', :size =>'725x450' %>
+                <%= image_tag '/images/post_new4.jpg', :size =>'725x450' %>
+            </div>
+        </div>
+        <div class="post_new_form form">
+            <h1>レシピ投稿</h1>
+            <%= form_for @recipe, url: post_new_process_path do |f| %>
+                <div>
+                    <p>レシピ名</p>
+                    <%= f.text_field :name, placeholder: "レシピ名" %>
+                </div>
+                <div>
+                    <p>材料と分量</p>
+                    <%= f.text_field :ingredients, placeholder: "<例>じゃがいも:1個半, 水:1000ml", class: "text" %>
+                </div>
+                <div>
+                    <p>カテゴリー</p>
+                    <%= f.collection_select :category ,@categories, :id, :name %>
+                </div>
+                <div>
+                    <p>料理行程</p>
+                    <%= f.text_field :journey, placeholder: "<例>①水を沸騰させる" , class: "text"%>
+                </div>
+                <div>
+                    <p>画像</p>
+                    <%= f.file_field :image %>
+                </div>
+                <div>
+                    <p>コツやポイント</p>
+                    <%= f.text_field :trick, placeholder: "<例>にんにくを入れるとさらに美味しくなります" %>
+                </div>
+                <button class="contents">投稿</button>
+            <% end %>
+        </div>
+    </div>
+</div>

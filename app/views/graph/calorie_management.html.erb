@@ -1,0 +1,18 @@
+<div class="calorie_management">
+    <div class="contents">
+        <p class="all_calorie">総消費カロリー:　<span><%= @exe_his.sum(:calorie) %></span>kcal</p>
+        <%= line_chart @exe_his.pluck(:created_at, :calorie), height: "700px", min: @exe_his.minimum("calorie"), max: @max, xtitle: "日付け", ytitle: "消費カロリー" %>
+    </div>
+    <div class="link_to">
+        <ul>
+            <li><%= link_to 'プロフィール', top_path, :class=>'link' %></li>
+            <li><%= link_to 'プロフィール編集', profile_edit_path, :class=>'link' %></li>
+            <li><%= link_to '新規投稿', post_new_path, :class=>'link' %></li>
+            <li><%= link_to 'マイ投稿一覧', post_cooking_path, :class=>'link' %></li>
+            <li><%= link_to '運動する', index_process_path, :class=>'link' %></li>
+            <li><%= link_to '一覧投稿', recipe_index_path, :class=>'link' %></li>
+            <li><%= link_to '体重グラフ, 登録', management_path, :class=>'link' %></li>
+            <li><%= link_to 'カロリーグラフ', calorie_management_path, :class=>'link' %></li>
+        </ul>
+    </div>
+</div>

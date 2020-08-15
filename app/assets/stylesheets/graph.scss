@@ -1,0 +1,142 @@
+// Place all the styles related to the graph controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.weight_management {
+    .form_and_link {
+        display: flex;
+        .weight_form {
+            margin: 40px;
+            padding: 20px;
+            border: solid 3px gray;
+            border-radius: 10px;
+            background-color: #EEEEEE;
+            width: 400px;
+            .weight_register {
+                p {
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                    font-size: 30px;
+                    text-align: center;
+                    font-family: serif;
+                }
+                input[type="number"] {
+                    width: 400px;
+                    height: 30px;
+                    margin-bottom: 15px;
+                    font-family: serif;
+                    font-size: 20px;
+                    border-radius: 10px;
+                    border: solid 1px gray;
+                    
+                }
+            }
+            button {
+                border: none;
+                width: 400px;
+                border-radius: 10px;
+                font-family: serif;
+                background-color: black;
+                color: white;
+                font-size: 20px;
+            }
+            .time_register {
+                p {
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                    font-size: 30px;
+                    text-align: center;
+                    font-family: serif;
+                }
+                span {
+                    font-size: 15px;
+                    text-align: center;
+                    font-family: serif;
+                }
+                .created_at {
+                    height: 30px;
+                    margin-bottom: 15px;
+                    font-family: serif;
+                    font-size: 20px;
+                    border-radius: 10px;
+                    border: solid 1px gray;
+                }
+            }
+        }
+        .bmi_and_body_fat_percentage  {
+            margin: 40px 40px 40px 0px;
+            padding: 20px;
+            border: solid 3px gray;
+            border-radius: 10px;
+            background-color: #EEEEEE;
+            width: 400px;
+            height: 100%;
+            .formula {
+                font-family: serif;
+                margin: 5px;
+            }
+            .bmi {
+                font-family: serif;
+                font-size: 25px;
+                margin: 15px 0px;
+            }
+            .body_fat_percentage {
+                font-family: serif;
+                font-size: 25px;
+            }
+            .weights_chart {
+                font-family: serif;
+            }
+        }
+        .link_to {
+            padding: 10px;
+            margin-top: 40px;
+            border-radius: 10px;
+            border: solid 1px gray;
+            height: 200px;
+            li {
+                margin-bottom: 10px;
+                .link {
+                    text-decoration: none;
+                    font-family: serif;
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+.calorie_management {
+    display: flex;
+    .contents {
+        width: 1250px;
+        margin-right: 20px;
+        .all_calorie {
+            margin: 20px;
+            padding: 20px;
+            border: solid 3px gray;
+            border-radius: 10px;
+            background-color: #EEEEEE;
+            width: 300px;
+            font-family: serif;
+            font-size: 20px;
+            span {
+                color: red;
+            }
+            
+        }
+    }
+    .link_to {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: solid 1px gray;
+        height: 200px;
+        li {
+            margin-bottom: 10px;
+            .link {
+                text-decoration: none;
+                font-family: serif;
+                color: gray;
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+// Place all the styles related to the motion controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.motion_index {
+    .contents {
+        position: absolute;
+        top: 150px;
+        left: 250px;
+        .clock {
+            font-size: 200px;
+        }
+        .category_search {
+            text-align: center;
+            margin: 50px;
+            .category_content {
+                height: 90px;
+                width: 300px;
+                font-size: 50px;
+                font-family: serif;
+            }
+        }
+        .button {
+            text-align: center;
+            .time_button {
+                height: 90px;
+                width: 300px;
+                font-size: 50px;
+                font-family: serif;
+                margin: 0px 20px;
+            }
+        }
+    }
+    .link_to {
+        padding: 10px;
+        margin: 20px;
+        border-radius: 10px;
+        border: solid 1px gray;
+        height: 200px;
+        width: 150px;
+        margin-left: 85%;
+        li {
+            margin-bottom: 10px;
+            .link {
+                text-decoration: none;
+                font-family: serif;
+                color: gray;
+            }
+        }
+    }
+}
+.details {
+    background: image-url('/images/motion_details.jpg');
+    height: 710px;
+    background-size: cover;
+    .contents {
+        border-radius: 10px;
+        background:rgba(255,255,255,0.6);
+        width: 750px;
+        padding: 30px;
+        position: absolute;
+        top: 200px;
+        left: 250px;
+        p {
+            font-family: serif;
+            margin-bottom: 20px;
+            font-size: 30px;
+            span {
+                color: red;
+            }
+            
+        }
+        .cal {
+             margin-bottom: 100px;
+        }
+        .links {
+            text-align: center;
+            .link {
+                text-decoration: none;
+                color: black;
+                font-size: 30px;
+                margin: 0px 50px;
+                border: solid 2px gray;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            .continue {
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<div class="post_cooking">
+    <div class="contents">
+        <h1 class="my_recipies">マイレシピ</h1>
+        <ul class="recipies">
+            <% @recipies.each do |recipe| %>
+            <li>
+                <p class="id"><<%= recipe.id %>></p>
+                <%= link_to cooking_journey_path(recipe.id) do %>
+                    <%= image_tag '/images/' + recipe.image, :size => '200x225' %>
+                <% end %>
+                <p class="name"><%= recipe.name %></p>
+                <p>
+                    <%= link_to post_delete_path(recipe), method: :delete, :class=>"delete" do %>
+                    >>削除
+                    <% end %>
+                </p>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+    <div class="link_to">
+        <ul>
+            <li><%= link_to 'プロフィール', top_path, :class=>'link' %></li>
+            <li><%= link_to 'プロフィール編集', profile_edit_path, :class=>'link' %></li>
+            <li><%= link_to '新規投稿', post_new_path, :class=>'link' %></li>
+            <li><%= link_to 'マイ投稿一覧', post_cooking_path, :class=>'link' %></li>
+            <li><%= link_to '運動する', index_process_path, :class=>'link' %></li>
+            <li><%= link_to '一覧投稿', recipe_index_path, :class=>'link' %></li>
+            <li><%= link_to '体重グラフ, 登録', management_path, :class=>'link' %></li>
+            <li><%= link_to 'カロリーグラフ', calorie_management_path, :class=>'link' %></li>
+        </ul>
+    </div>
+</div>

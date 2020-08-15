@@ -1,0 +1,45 @@
+<div class="profile_edit">
+    <div class="contents">
+        <div class="profile_edit_form form">
+            <%= form_for @user, url: profile_edit_process_path, method: :post do |f| %>
+                <div class="field">
+                    <p>
+                        <label><%= f.label :name, "名前" %></label>
+                    </p>
+                    <%= f.text_field :name, placeholder: "名前を入力して下さい。" %>
+                </div>
+                <div class="field">
+                    <p>
+                        <label><%= f.label :email, "メールアドレス" %></label>
+                    </p>
+                    <%= f.text_field :email, placeholder: "メールアドレスを入力して下さい。" %>
+                </div>
+                <div class="field">
+                    <p>
+                        <label>プロフィール画像</label>
+                    </p>
+                    <%= f.file_field :image %>
+                </div>
+                <div class="field">
+                    <p>
+                        <label>身長</label>
+                    </p>
+                    <%= f.number_field :height, placeholder: "身長" %>
+                </div>
+                <div class="field">
+                    <p>
+                        <label><%= f.label :password, "パスワード" %></label>
+                    </p>
+                    <%= f.password_field :password, placeholder: "パスワードを更新しない場合は入力しないでください" %>
+                </div>
+                <div class="field">
+                    <p>
+                        <label><%= f.label :password_confirmation, "パスワード(確認)" %></label>
+                    </p>
+                    <%= f.password_field :password_confirmation, placeholder: "確認用" %>
+                </div>
+                <%= f.submit "送信", class: 'btn' %>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="profiles">
+    <div class="contents">
+        <%= @all_calorie %>
+        <div class="my_profile">
+            <div class="image_and_name">
+                <%= image_tag '/images/' + current_user.image, :class=>'image', :size => '200x200' %>
+                <p class="name"><%= current_user.name %></p>
+            </div>
+            <div class="my_post">
+                <span>投稿数 :</span>
+                <%= @recipe.length %>
+            </div>
+        </div>
+        <div class="link_to">
+            <ul>
+                <li><%= link_to 'プロフィール', top_path, :class=>'link' %></li>
+                <li><%= link_to 'プロフィール編集', profile_edit_path, :class=>'link' %></li>
+                <li><%= link_to '新規投稿', post_new_path, :class=>'link' %></li>
+                <li><%= link_to 'マイ投稿一覧', post_cooking_path, :class=>'link' %></li>
+                <li><%= link_to '運動する', index_process_path, :class=>'link' %></li>
+                <li><%= link_to '一覧投稿', recipe_index_path, :class=>'link' %></li>
+                <li><%= link_to '体重グラフ, 登録', management_path, :class=>'link' %></li>
+                <li><%= link_to 'カロリーグラフ', calorie_management_path, :class=>'link' %></li>
+            </ul>
+        </div>
+    </div>
+</div>

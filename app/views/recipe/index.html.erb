@@ -1,0 +1,57 @@
+<div class="index">
+    <div class="contents">
+        <ul class="all_recipies">
+            <% if @recipies.present? %>
+            <% @recipies.each do |recipe| %>
+            <li>
+                <div class="content">
+                    <div>
+                        <%= link_to recipe_journey_path(recipe.id) do %>
+                        <%= image_tag '/images/' + recipe.image, class: 'image' %>
+                        <% end %>
+                    </div>
+                    <p>
+                        <%= recipe.name %>
+                    </p>
+                </div>
+            </li>
+            <% end %>
+            <% else %>
+            <p>
+                該当するレシピはありません
+            </p>
+            <% end %>
+        </ul>
+        <div class="search_and_link">
+            <form class="search" method="get" action="/">
+                <h1>絞り込み</h1>
+                <div class="key_word">
+                    <p>キーワード検索</p>
+                    <input type="text" placeholder="検索ワードを入力" name="word" value="" class="key_word_search">
+                </div>
+                <div class="category">
+                    <p>カテゴリー選択</p>
+                    <select name="category" class="category_search">
+                        <option value="">なし</option>
+                        <% @categories.each do |category| %>
+                        <option value="<%= category.id %>"><%= category.name %></option>
+                        <% end %>
+                    </select>
+                </div>
+                <button>送信</button>
+            </form>
+            <div class="link_to">
+                <ul>
+                    <li><%= link_to 'プロフィール', top_path, :class=>'link' %></li>
+                    <li><%= link_to 'プロフィール編集', profile_edit_path, :class=>'link' %></li>
+                    <li><%= link_to '新規投稿', post_new_path, :class=>'link' %></li>
+                    <li><%= link_to 'マイ投稿一覧', post_cooking_path, :class=>'link' %></li>
+                    <li><%= link_to '運動する', index_process_path, :class=>'link' %></li>
+                    <li><%= link_to '一覧投稿', recipe_index_path, :class=>'link' %></li>
+                    <li><%= link_to '体重グラフ, 登録', management_path, :class=>'link' %></li>
+                    <li><%= link_to 'カロリーグラフ', calorie_management_path, :class=>'link' %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
