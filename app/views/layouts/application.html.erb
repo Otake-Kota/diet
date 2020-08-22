@@ -35,15 +35,16 @@
         </li>
         <li>
           <!-- プロフィールページ -->
-          <a href="#">
+          <%= link_to top_path do %>
             <i class="fa fa-user-o"></i>
-          </a>
+          <% end %>
+          
         </li>
         <li>
           <!-- 投稿 -->
-          <a href="#">
+          <%= link_to post_new_path do %>
             <i class="fa fa-upload"></i>
-          </a>
+          <% end %>
         </li>
       </ul>
       <% end %>
