@@ -67,30 +67,35 @@
 .profiles {
     .contents {
         display: flex;
+        width: 80%;
+        margin: 0 auto;
         .my_profile {
-            margin-left: 80px;
-            margin-top: 50px;
+            margin-top: 70px;
             flex: 1;
+            display: flex;
             .image_and_name {
                 .image {
                     border-radius: 50%;
                 }
                 .name {
                     font-family: serif;
-                    font-size: 50px;
+                    font-size: 60px;
                     margin-left: 70px;
                 }
             }
-            .my_post {
-                font-family: serif;
-                font-size: 30px;
-                margin-top: 20px;
+            .all_post {
+                margin-left: 50px;
+                .my_post {
+                    font-family: serif;
+                    font-size: 30px;
+                    margin-top: 20px;
+                    color: gray;
+                }
             }
-            
         }
         .link_to {
             padding: 10px;
-            margin: 20px;
+            margin-top: 70px;
             border-radius: 10px;
             border: solid 1px gray;
             height: 200px;

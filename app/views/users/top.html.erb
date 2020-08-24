@@ -1,14 +1,32 @@
 <div class="profiles">
     <div class="contents">
-        <%= @all_calorie %>
         <div class="my_profile">
             <div class="image_and_name">
                 <%= image_tag '/images/' + current_user.image, :class=>'image', :size => '200x200' %>
                 <p class="name"><%= current_user.name %></p>
             </div>
-            <div class="my_post">
-                <span>投稿数 :</span>
-                <%= @recipe.length %>
+            <div class="all_post">
+                <div class="my_post">
+                    投稿数 :<%= @recipe.length %>
+                </div>
+                <div class="my_post">
+                    運動の合計時間 :<%= @all_time %>
+                </div>
+                <div class="my_post">
+                    総消費カロリー数 :<%= @all_calorie %>kcal
+                </div>
+                <div class="my_post">
+                    側近で運動した日にち :<%= @last_exercise_history_time %>
+                </div>
+                <div class="my_post">
+                    BMI :<%= @bmi.round(2) %>
+                </div>
+                <div class="my_post">
+                    現体重 :<%= @las_weight.weight %>kg
+                </div>
+                <div class="my_post">
+                    身長 :<%= current_user.height %>cm
+                </div>
             </div>
         </div>
         <div class="link_to">
