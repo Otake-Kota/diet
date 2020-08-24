@@ -4,23 +4,34 @@ class UsersController < ApplicationController
   
   def top
     @recipe = Recipe.where(user_id: current_user.id)
+    
     exercise_histories = ExerciseHistory.where(user_id: current_user.id)
-    
-    all_create = exercise_histories.sum(:created_at)
-    all_update = exercise_histories.sum(:updated_at)
-    all_time = all_update - all_create
-    @all_time = Time.at(all_time - 9*60*60).strftime('%X')
-    
-    eh = ExerciseHistory.where(user_id: current_user.id)
-    @all_calorie = eh.sum(:calorie)
+    if exercise_histories
+      @all_time = 0
+      @all_calorie = 0
+    else
+      all_create = exercise_histories.sum(:created_at)
+      all_update = exercise_histories.sum(:updated_at)
+      all_time = all_update - all_create
+      @all_time = Time.at(all_time - 9*60*60).strftime('%X')
+      @all_calorie = eh.sum(:calorie)
+    end
     
     last_exercise_history = ExerciseHistory.where(user_id: current_user.id).last
-    @last_exercise_history_time = last_exercise_history.created_at.strftime("%Y-%m-%d  %H:%M:%S")
+    if last_exercise_history == nil
+      @last_exercise_history_time = 0
+    else
+      @last_exercise_history_time = last_exercise_history.created_at.strftime("%Y-%m-%d  %H:%M:%S")
+    end
     
     @las_weight = Weight.where(user_id: current_user.id).last
-    height = current_user.height / 100.to_f
-    squ_height = height * height
-    @bmi = @las_weight.weight / squ_height
+    if @las_weight == nil
+      @bmi = 0
+    else
+      height = current_user.height / 100.to_f
+      squ_height = height * height
+      @bmi = @las_weight.weight / squ_height
+    end
   end
   def sign_up
     @user = User.new

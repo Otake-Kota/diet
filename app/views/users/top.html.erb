@@ -2,12 +2,12 @@
     <div class="contents">
         <div class="my_profile">
             <div class="image_and_name">
-                <%= image_tag '/images/' + current_user.image, :class=>'image', :size => '200x200' %>
+                <%= image_tag '/images/' + current_user.image, :class=>'image', :size => '300x300' %>
                 <p class="name"><%= current_user.name %></p>
             </div>
             <div class="all_post">
                 <div class="my_post">
-                    投稿数 :<%= @recipe.length %>
+                    レシピ投稿数 :<%= @recipe.length %>
                 </div>
                 <div class="my_post">
                     運動の合計時間 :<%= @all_time %>
@@ -22,7 +22,12 @@
                     BMI :<%= @bmi.round(2) %>
                 </div>
                 <div class="my_post">
-                    現体重 :<%= @las_weight.weight %>kg
+                    現体重 :
+                    <% if @las_weight == nil %>
+                      <span>未登録</span>
+                    <% else %>
+                      <%= @las_weight.weight %>kg
+                    <% end %>
                 </div>
                 <div class="my_post">
                     身長 :<%= current_user.height %>cm
