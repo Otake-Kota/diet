@@ -8,10 +8,4 @@
 ExerciseContent.create(:name=>'ランニング',:calorie=>15)
 ExerciseContent.create(:name=>'腹筋',:calorie=>20)
 ExerciseContent.create(:name=>'ダンベル',:calorie=>25)
-ExerciseHistory.create(:exercise_content_id=>1,:user_id=>1,:created_at=>'2020-07-26 00:00:00',:updated_at=>'2020-07-26 00:00:00')
-ExerciseHistory.create(:exercise_content_id=>2,:user_id=>1,:created_at=>'2020-07-27 00:00:00',:updated_at=>'2020-07-27 00:00:00')
-ExerciseHistory.create(:exercise_content_id=>3,:user_id=>1,:created_at=>'2020-07-28 00:00:00',:updated_at=>'2020-07-28 00:00:00')
-ExerciseHistory.create(:exercise_content_id=>3,:user_id=>3,:created_at=>'2020-07-28 00:00:00',:updated_at=>'2020-07-28 00:00:00')
-ExerciseHistory.create(:exercise_content_id=>3,:user_id=>4,:created_at=>'2020-07-28 00:00:00',:updated_at=>'2020-07-28 00:30:00')
-
 
