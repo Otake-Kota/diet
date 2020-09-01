@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:sign_up, :sign_up_process, :sign_in, :sign_in_process]
   before_action :redirect_to_top_if_signed_in, only: [:sign_up, :sign_in]
-  
   def top
     @recipe = Recipe.where(user_id: current_user.id)
   end
@@ -112,7 +111,7 @@ class UsersController < ApplicationController
   def post_delete
     @recipe = Recipe.find(params[:id])
     if @recipe.destroy
-      flash[:delete] = "削除しました"
+      flash[:success] = "削除しました"
       redirect_to post_cooking_path
     else
       flash[:danger] = "削除に失敗しました"

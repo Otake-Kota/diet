@@ -1,6 +1,6 @@
 class RecipeController < ApplicationController
   before_action :authorize
-  
+
   def index
     @categories = Category.all
     if params[:word].present?

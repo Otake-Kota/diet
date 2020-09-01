@@ -8,7 +8,7 @@
   #  adapter: sqlite3
   #  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   #  timeout: 5000
-  
+
   #development:
   #  <<: *default
   #  database: db/development.sqlite3
@@ -30,15 +30,15 @@ default: &default
   encoding: utf8
   username: root
   password:
- 
+
 development:
   <<: *default
-  database: diet
+  database: diet_development
  
 test:
   <<: *default
-  database: diet
- 
+  database: diet_test
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
