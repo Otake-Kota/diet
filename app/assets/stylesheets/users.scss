@@ -67,33 +67,38 @@
 .profiles {
     .contents {
         display: flex;
+        width: 90%;
+        margin: 0 auto;
         .my_profile {
-            margin-left: 80px;
-            margin-top: 50px;
+            margin-top: 70px;
             flex: 1;
+            display: flex;
             .image_and_name {
                 .image {
                     border-radius: 50%;
                 }
                 .name {
                     font-family: serif;
-                    font-size: 50px;
-                    margin-left: 70px;
+                    font-size: 100px;
+                    text-align: center;
                 }
             }
-            .my_post {
-                font-family: serif;
-                font-size: 30px;
-                margin-top: 20px;
+            .all_post {
+                margin-left: 50px;
+                .my_post {
+                    font-family: serif;
+                    font-size: 40px;
+                    margin-top: 20px;
+                    color: gray;
+                }
             }
-            
         }
         .link_to {
             padding: 10px;
-            margin: 20px;
+            margin-top: 70px;
             border-radius: 10px;
             border: solid 1px gray;
-            height: 200px;
+            height: 270px;
             width: 150px;
             li {
                 margin-bottom: 10px;
@@ -101,6 +106,7 @@
                     text-decoration: none;
                     font-family: serif;
                     color: gray;
+                    font-size: 20px;
                 }
             }
         }

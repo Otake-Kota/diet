@@ -3,6 +3,34 @@ class UsersController < ApplicationController
   before_action :redirect_to_top_if_signed_in, only: [:sign_up, :sign_in]
   def top
     @recipe = Recipe.where(user_id: current_user.id)
+    
+    exercise_histories = ExerciseHistory.where(user_id: current_user.id)
+    if exercise_histories
+      @all_time = 0
+      @all_calorie = 0
+    else
+      all_create = exercise_histories.sum(:created_at)
+      all_update = exercise_histories.sum(:updated_at)
+      all_time = all_update - all_create
+      @all_time = Time.at(all_time - 9*60*60).strftime('%X')
+      @all_calorie = eh.sum(:calorie)
+    end
+    
+    last_exercise_history = ExerciseHistory.where(user_id: current_user.id).last
+    if last_exercise_history == nil
+      @last_exercise_history_time = 0
+    else
+      @last_exercise_history_time = last_exercise_history.created_at.strftime("%Y-%m-%d  %H:%M:%S")
+    end
+    
+    @las_weight = Weight.where(user_id: current_user.id).last
+    if @las_weight == nil
+      @bmi = 0
+    else
+      height = current_user.height / 100.to_f
+      squ_height = height * height
+      @bmi = @las_weight.weight / squ_height
+    end
   end
   def sign_up
     @user = User.new
@@ -64,7 +92,6 @@ class UsersController < ApplicationController
       end
     else
       if current_user.update(user_edit_params.merge({password: password, password_confirmation: params[:user][:password_confirmation], image: image_name}))
-        # MEMO: 以下2行を追加しています。 k.tezuka
         current_user.password = User.generate_password(current_user.password)
         current_user.save(validate: false)
         redirect_to top_path and return
@@ -121,7 +148,6 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :height, :password, :password_confirmation)
-    # MEMO: 上記のようにpassword_confirmationも許可しないと正しくバリデーションが作動しません。 k.tezuka
   end
   def user_edit_params
     params.require(:user).permit(:name, :email, :height)
